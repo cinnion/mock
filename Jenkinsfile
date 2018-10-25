@@ -1,6 +1,16 @@
 def titoBuild(subdir) {
     return {
         stage("build: $subdir") {
+            if (env.BRANCH_NAME ==~ /devel/ ) {
+                environment {
+                    titoArgs = "--build --rpm --test --output=${TITODIR}"
+                }
+            } else {
+                environment {
+                    titoArgs = "--build --rpm --output=${TITODIR}"
+                }
+            }
+
             steps {
                 sh """
                     env
@@ -18,11 +28,6 @@ pipeline {
     environment {
         repoRoot = 'local'
         TITODIR = "${WORKSPACE}/tito"
-        if (env.BRANCH_NAME ==~ /devel/ ) {
-            titoArgs = "--build --rpm --test --output=${TITODIR}"
-        } else {
-            titoArgs = "--build --rpm --output=${TITODIR}"
-        }
     }
 
     options {
@@ -32,8 +37,10 @@ pipeline {
 
     stages {
         stage('Build') {
-            titoBuild 'mock'
-            titoBuild 'mock-core-configs'
+            script {
+                titoBuild 'mock'
+                titoBuild 'mock-core-configs'
+            }
         }
 
         stage('Publish') {
