@@ -50,9 +50,7 @@ pipeline {
                 skipDefaultCheckout()
             }
             steps {
-                script {
-                    publishTitoResults 'foo'
-                }
+                publishTitoResults 'foo'
             }
         }
     }
