@@ -51,7 +51,7 @@ pipeline {
             }
             steps {
                 script {
-                    publishTitoResults foo
+                    publishTitoResults 'foo'
                 }
             }
         }
