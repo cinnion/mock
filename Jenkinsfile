@@ -37,9 +37,11 @@ pipeline {
 
     stages {
         stage('Build') {
-            script {
-                titoBuild 'mock'
-                titoBuild 'mock-core-configs'
+            steps {
+                script {
+                    titoBuild 'mock'
+                    titoBuild 'mock-core-configs'
+                }
             }
         }
 
