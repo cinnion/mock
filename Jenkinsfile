@@ -5,7 +5,7 @@ def titoBuild(subdir) {
         titoArgs = "build --rpm --output=${TITODIR}"
     }
 
-    dir($subdir) {
+    dir(subdir) {
         sh """
             tito ${titoArgs}
         """
