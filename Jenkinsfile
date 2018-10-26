@@ -1,5 +1,5 @@
 def titoBuild(subdir) {
-    if (env.BRANCH_NAME ==~ /devel/ ) {
+    if (env.BRANCH_NAME =~ /devel/ ) {
         titoArgs = "build --rpm --test --output=${TITODIR}"
     } else {
         titoArgs = "build --rpm --output=${TITODIR}"
