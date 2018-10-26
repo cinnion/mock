@@ -5,13 +5,11 @@ def titoBuild(subdir) {
         titoArgs = "build --rpm --output=${TITODIR}"
     }
 
-    sh """
-        pwd
-        set
-        env
-        ls -la
-        ( cd ${subdir} && tito ${titoArgs} )
-    """
+    dir($subdir) {
+        sh """
+            tito ${titoArgs}
+        """
+    }
 }
 
 pipeline {
@@ -43,7 +41,7 @@ pipeline {
             }
             steps {
                 script {
-                    publishTitoResults
+                    publishTitoResults()
                 }
             }
         }
