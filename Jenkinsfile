@@ -1,25 +1,17 @@
 def titoBuild(subdir) {
-    return {
-        stage("build: $subdir") {
-            if (env.BRANCH_NAME ==~ /devel/ ) {
-                environment {
-                    titoArgs = "--build --rpm --test --output=${TITODIR}"
-                }
-            } else {
-                environment {
-                    titoArgs = "--build --rpm --output=${TITODIR}"
-                }
-            }
-
-            steps {
-                sh """
-                    env
-                    cd ${subdir}
-                    tito ${titoArgs}
-                """
-            }
-        }
+    if (env.BRANCH_NAME ==~ /devel/ ) {
+        titoArgs = "--build --rpm --test --output=${TITODIR}"
+    } else {
+        titoArgs = "--build --rpm --output=${TITODIR}"
     }
+
+    sh """
+        pwd
+        set
+        env
+        ls -la
+        ( cd ${subdir} && tito ${titoArgs} )
+    """
 }
 
 pipeline {
@@ -50,7 +42,9 @@ pipeline {
                 skipDefaultCheckout()
             }
             steps {
-                publishTitoResults 'foo'
+                script {
+                    publishTitoResults
+                }
             }
         }
     }
