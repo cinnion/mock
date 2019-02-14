@@ -15,7 +15,7 @@
 Summary: Builds packages inside chroots
 Name: mock
 Version: 1.4.13
-Release: 1%{?dist}
+Release: 2.ka8zrt
 License: GPLv2+
 # Source is created by
 # git clone https://github.com/rpm-software-management/mock.git
@@ -234,6 +234,61 @@ pylint-3 py/mockbuild/ py/*.py py/mockbuild/plugins/* || :
 %endif
 
 %changelog
+* Wed Feb 13 2019 Douglas Needham <cinnion@gmail.com> 1.4.13-2.ka8zrt
+- Fix an error with the requirement of python2-jinja2 (cinnion@gmail.com)
+- add example for jinja templates (msuchy@redhat.com)
+- mangling shebang in /usr/libexec/mock/create_default_route_in_container.sh
+  from /bin/bash to #!/usr/bin/bash (msuchy@redhat.com)
+- W0706: The except handler raises immediately (try-except-raise)
+  (msuchy@redhat.com)
+- C0414: Import alias does not rename original package (useless-import-alias)
+  (msuchy@redhat.com)
+- C0200: Consider using enumerate instead of iterating with range and len
+  (consider-using-enumerate) (msuchy@redhat.com)
+- R1710: Either all return statements in a function should return an
+  expression, or none of them should. (inconsistent-return-statements)
+  (msuchy@redhat.com)
+- R1710: Either all return statements in a function should return an
+  expression, or none of them should. (inconsistent-return-statements)
+  (msuchy@redhat.com)
+- C0330: Wrong continued indentation (add 2 spaces). (msuchy@redhat.com)
+- R1710: Either all return statements in a function should return an
+  expression, or none of them should. (inconsistent-return-statements)
+  (msuchy@redhat.com)
+- implement templated configs using jinja2 (msuchy@redhat.com)
+- move live defaults from site-defaults.cfg to utils.py (msuchy@redhat.com)
+- introduce "decompress_program" option for root_cache for bsdtar
+  (msuchy@redhat.com)
+- ignore too-many-boolean-expressions (msuchy@redhat.com)
+- C0411: standard import "import shutil" should be placed before "import rpm"
+  (wrong-import-order) (msuchy@redhat.com)
+- R1710: Either all return statements in a function should return an
+  expression, or none of them should. (inconsistent-return-statements)
+  (msuchy@redhat.com)
+- C0411: standard import "import os" should be placed before "import rpm"
+  (wrong-import-order) (msuchy@redhat.com)
+- R1714: Consider merging these comparisons with "in" to "scrub in ('yum-
+  cache', 'dnf-cache')" (consider-using-in) (msuchy@redhat.com)
+- C0411: third party import "import rpm" should be placed before "from
+  mockbuild.mounts import BindMountPoint" (wrong-import-order)
+  (msuchy@redhat.com)
+- R1714: Consider merging these comparisons with in to "what in ('all',
+  'overlayfs')" (consider-using-in) (msuchy@redhat.com)
+- E0602: Undefined variable 'utils' (undefined-variable) (msuchy@redhat.com)
+- C0121: Comparison to None should be 'expr is not None' (singleton-comparison)
+  (msuchy@redhat.com)
+- fix exclude patter for bsdtar (msuchy@redhat.com)
+- delete old changelog entries (msuchy@redhat.com)
+- use f29 for tests (msuchy@redhat.com)
+- update the default in sitec-defaults.cfg (msuchy@redhat.com)
+- Recommend dnf-utils (fzatlouk@redhat.com)
+- ignore useless-object-inheritance pylint warning (msuchy@redhat.com)
+- add scientific linux on list of rhel clones [GH#228] (msuchy@redhat.com)
+- Use 32-bit personality for armv7*/armv8* builds (bero@lindev.ch)
+- update package manager.py (42997170+pjunak@users.noreply.github.com)
+- [mockbuild] create custom error message for dnf-utils not being installed
+  (pjunak@localhost.localdomain)
+
 * Mon Aug 13 2018 Miroslav Suchý <msuchy@redhat.com> 1.4.13-1
 - fix python_sitelib macro
 
