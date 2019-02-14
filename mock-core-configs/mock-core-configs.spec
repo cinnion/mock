@@ -3,7 +3,7 @@
 
 Name:		mock-core-configs
 Version:	29.4
-Release:	1%{?dist}
+Release:	2.ka8zrt
 Summary:	Mock core config files basic chroots
 
 License:	GPLv2+
@@ -121,6 +121,19 @@ fi
 %ghost %config(noreplace,missingok) %{_sysconfdir}/mock/default.cfg
 
 %changelog
+* Wed Feb 13 2019 Douglas Needham <cinnion@gmail.com> 29.4-2.ka8zrt
+- Change use_nspawn to false on epel-5-i386 (cinnion@gmail.com)
+- Use local mirrors and add local build indicator to the dist value
+  (cinnion@gmail.com)
+- add modular repos (msuchy@redhat.com)
+- enable gpgcheck for debuginfo for rawhide (msuchy@redhat.com)
+- enable gpgcheck for testing and debuginfo for F30 (msuchy@redhat.com)
+- alter gpg keys for Fedora rawhide (msuchy@redhat.com)
+- EOL Fedora 27 configs (msuchy@redhat.com)
+- remove mdpolicy from F30 (msuchy@redhat.com)
+- add Fedora 30 configs (msuchy@redhat.com)
+- add link to distribution-gpg-keys for rhel8 bootstrap (msuchy@redhat.com)
+
 * Fri Nov 16 2018 Miroslav Suchý <msuchy@redhat.com> 29.4-1
 - use correct gpg keys for rhelbeta-8
 - add virtual platform module
