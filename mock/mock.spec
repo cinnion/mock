@@ -15,7 +15,7 @@
 Summary: Builds packages inside chroots
 Name: mock
 Version: 1.4.14
-Release: 1%{?dist}
+Release: 2ka8zrt
 License: GPLv2+
 # Source is created by
 # git clone https://github.com/rpm-software-management/mock.git
@@ -234,6 +234,12 @@ pylint-3 py/mockbuild/ py/*.py py/mockbuild/plugins/* || :
 %endif
 
 %changelog
+* Sat Feb 23 2019 Douglas Needham <cinnion@gmail.com> 1.4.14-2ka8zrt
+- Fix dependency on python-jinja2 for RHEL/CentOS 7 (cinnion@gmail.com)
+- Fix --enable-network documentation in man page (directhex@apebox.org)
+- use --offline to tito srpm so I can test before git pushing
+  (msuchy@redhat.com)
+
 * Tue Feb 19 2019 Miroslav Suchý <msuchy@redhat.com> 1.4.14-1
 - config['decompress_program'] default (praiskup@redhat.com)
 - add example for jinja templates
