@@ -1,6 +1,6 @@
 Name:       mock-core-configs
 Version:    33
-Release:    1%{?dist}
+Release:    2ka8zrt
 Summary:    Mock core config files basic chroots
 
 License:    GPLv2+
@@ -144,6 +144,13 @@ fi
 %ghost %config(noreplace,missingok) %{_sysconfdir}/mock/default.cfg
 
 %changelog
+* Wed Oct 21 2020 Douglas Needham <cinnion@gmail.com> 33-2ka8zrt
+- EPEL: fix repo-id and name= (praiskup@redhat.com)
+- Add missing repos to CentOS 6 and CentOS 7 configs (praiskup@redhat.com)
+- Do --disablerepo=centos-sclo* in templates (praiskup@redhat.com)
+- Add plain CentOS 6/7/8 configs (praiskup@redhat.com)
+- EPEL Playground do depend on normal EPEL (praiskup@redhat.com)
+
 * Thu Sep 03 2020 Pavel Raiskup <praiskup@redhat.com> 33-1
 - bump version to 33, as we already ship F33 configs
 - because of the mock-filesystem change, depend on mock 2.5
