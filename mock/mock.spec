@@ -13,7 +13,7 @@
 Summary: Builds packages inside chroots
 Name: mock
 Version: 2.6
-Release: 1%{?dist}
+Release: 2ka8zrt
 License: GPLv2+
 # Source is created by
 # git clone https://github.com/rpm-software-management/mock.git
@@ -274,6 +274,31 @@ pylint-3 py/mockbuild/ py/*.py py/mockbuild/plugins/* || :
 %dir  %{_datadir}/cheat
 
 %changelog
+* Wed Oct 21 2020 Douglas Needham <cinnion@gmail.com> 2.6-2ka8zrt
+- forgotten import (msuchy@redhat.com)
+- unused import mockbuild.util (msuchy@redhat.com)
+- missing import (msuchy@redhat.com)
+- Fix addrepo when repo is missing (markus.linnala@gmail.com)
+- mock: own the cheat directory (praiskup@redhat.com)
+- move get_fs_type() and find_non_nfs_dir() to file_util.py (msuchy@redhat.com)
+- move is_in_dir() to file_util.py (msuchy@redhat.com)
+- move rmtree() to file_util.py (msuchy@redhat.com)
+- move touch() to file_util.py (msuchy@redhat.com)
+- move mkdirIfAbsent() to file_util.py (msuchy@redhat.com)
+- move config functions from util.py to config.py (msuchy@redhat.com)
+- Complete the FileDownloader movement (praiskup@redhat.com)
+- move text oriented funcions and classes to text.py (msuchy@redhat.com)
+- move FileDownloader to separate file (msuchy@redhat.com)
+- Allow %%-sign in config_opts['resultdir'] (praiskup@redhat.com)
+- move commandTimeoutExpired to exception module and give it result code 11
+  (msuchy@redhat.com)
+- Add test for the postupdate hook and root-cache plugin (praiskup@redhat.com)
+- Log the reason we run postupdate hooks (praiskup@redhat.com)
+- tests: add test for the lvm postupdate hook (praiskup@redhat.com)
+- Don't run the "postupdate" hook for bootstrap (praiskup@redhat.com)
+- Add a new "postupdate" hook (dturecek@redhat.com)
+- Log mock's NVR (praiskup@redhat.com)
+
 * Tue Sep 15 2020 Pavel Raiskup <praiskup@redhat.com> 2.6-1
 - the --recurse option implies --continue
 - fix --chain --continue option
